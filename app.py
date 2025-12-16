@@ -24,7 +24,8 @@ STRUCTURED_QUESTIONS = [
 
 # --- メイン処理 ---
 st.title("対話システム3")
-st.caption("質問を行います。")
+st.caption("システムからの質問に回答し、対話が終了したら左のサイドバーから対話ログを送信して終了してください。")
+st.caption("ログを記録するため、個人情報や知られたくないことは記述しないでください。")
 
 # セッション初期化
 if "messages" not in st.session_state:
@@ -51,8 +52,8 @@ with st.sidebar:
 
     # 自動送信ボタン
     if len(st.session_state.messages) > 1: # 会話が少しでもあれば表示
-        if st.button("実験データを送信して終了"):
-            with st.spinner("データを送信しています..."):
+        if st.button("対話ログを送信して終了"):
+            with st.spinner("ログを送信しています..."):
                 try:
                     # 送信するデータを作成
                     payload = {
@@ -98,6 +99,7 @@ if user_input := st.chat_input("..."):
         
         st.write(final_response)
         st.session_state.messages.append({"role": "assistant", "content": final_response})
+
 
 
 
