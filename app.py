@@ -7,7 +7,7 @@ import uuid # ユーザー識別用
 GAS_URL = "https://script.google.com/macros/s/AKfycbxoJpPCoQ3xAE2gYYB5jUz6yY94rqJHsAjE0L_O6-E0kRZLNqP7nwSY-0eZ9_fnyKkJ/exec"
 
 # --- 設定 ---
-st.set_page_config(page_title="対話システム3", page_icon="T", layout="wide")
+st.set_page_config(page_title="比較手法対話システム", page_icon="T", layout="wide")
 
 # 質問リスト
 STRUCTURED_QUESTIONS = [
@@ -97,6 +97,7 @@ if user_input := st.chat_input("..."):
         
         st.write(final_response)
         st.session_state.messages.append({"role": "assistant", "content": final_response})
+
 
 
 
