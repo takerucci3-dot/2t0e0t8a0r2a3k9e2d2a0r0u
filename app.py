@@ -24,6 +24,10 @@ STRUCTURED_QUESTIONS = [
 
 # --- メイン処理 ---
 st.title("比較手法システム")
+st.caption("最初の質問の回答例：")
+st.caption("「友人にメールを送ったのですが、3日たっても返信がありません。」")
+st.caption("「今日の面接でてんぱってしまい、質問にうまく答えられませんでした。」")
+st.caption("「昨日資格試験を受けてきたのですが、合格できているか不安で落ち着かないです。」")
 
 # セッション初期化
 if "messages" not in st.session_state:
@@ -97,6 +101,7 @@ if user_input := st.chat_input("..."):
         
         st.write(final_response)
         st.session_state.messages.append({"role": "assistant", "content": final_response})
+
 
 
 
