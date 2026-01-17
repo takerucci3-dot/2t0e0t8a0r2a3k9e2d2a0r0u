@@ -23,9 +23,7 @@ STRUCTURED_QUESTIONS = [
 ]
 
 # --- メイン処理 ---
-st.title("対話システム3")
-st.caption("システムからの質問に回答し、対話が終了したら左のサイドバーから対話ログを送信して終了してください。")
-st.caption("ログを記録するため、個人情報や知られたくないことは記述しないでください。")
+st.title("比較手法システム")
 
 # セッション初期化
 if "messages" not in st.session_state:
@@ -99,6 +97,7 @@ if user_input := st.chat_input("..."):
         
         st.write(final_response)
         st.session_state.messages.append({"role": "assistant", "content": final_response})
+
 
 
 
