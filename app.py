@@ -7,14 +7,12 @@ import uuid # ユーザー識別用
 GAS_URL = "https://script.google.com/macros/s/AKfycbxoJpPCoQ3xAE2gYYB5jUz6yY94rqJHsAjE0L_O6-E0kRZLNqP7nwSY-0eZ9_fnyKkJ/exec"
 
 # --- 設定 ---
-st.set_page_config(page_title="対話システム1", page_icon="T", layout="wide")
-
+st.set_page_config(page_title="比較手法対話システム", page_icon="T", layout="wide")
 
 # 質問リスト
-
 STRUCTURED_QUESTIONS = [
-    "どのようなことがあったのですか？どんな状況だったか詳しく教えていただけますか？",
-    "そうなんですね。それはお辛いですよね・・・友人から返信が来ないとき、どのようなお気持ちになりましたか？",
+    "こんにちは。あなたが辛いと思っていることや悩みを私に教えてください。",
+    "そのとき、どんな気分になりましたか？",
     "その気分の強さは０から１００で表すとどれくらいですか？",
     "その出来事に直面した際、どのような考えが頭にぱっと浮かびましたか？",
     "その考えが正しいとしたら、それを裏付ける根拠や事実はどのようなことが考えられますか？",
@@ -25,11 +23,11 @@ STRUCTURED_QUESTIONS = [
 ]
 
 # --- メイン処理 ---
-st.title("卒論対話システム")
-#st.caption("最初の質問の回答例：")
-#st.caption("「友人にメールを送ったのですが、3日たっても返信がありません。」")
-#st.caption("「今日の面接でてんぱってしまい、質問にうまく答えられませんでした。」")
-#st.caption("「昨日資格試験を受けてきたのですが、合格できているか不安で落ち着かないです。」")
+st.title("比較手法システム")
+st.caption("最初の質問の回答例：")
+st.caption("「友人にメールを送ったのですが、3日たっても返信がありません。」")
+st.caption("「今日の面接でてんぱってしまい、質問にうまく答えられませんでした。」")
+st.caption("「昨日資格試験を受けてきたのですが、合格できているか不安で落ち着かないです。」")
 
 # セッション初期化
 if "messages" not in st.session_state:
@@ -103,6 +101,9 @@ if user_input := st.chat_input("..."):
         
         st.write(final_response)
         st.session_state.messages.append({"role": "assistant", "content": final_response})
+
+
+
 
 
 
